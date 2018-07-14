@@ -1,0 +1,6 @@
+framework module Disintegrate {
+  umbrella header "Disintegrate-umbrella.h"
+
+  export *
+  module * { export * }
+}

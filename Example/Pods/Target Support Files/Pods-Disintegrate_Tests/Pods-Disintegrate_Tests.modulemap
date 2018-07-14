@@ -1,0 +1,6 @@
+framework module Pods_Disintegrate_Tests {
+  umbrella header "Pods-Disintegrate_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

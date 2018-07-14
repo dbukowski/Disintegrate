@@ -1,0 +1,22 @@
+{
+  "name": "Disintegrate",
+  "version": "0.1.0",
+  "summary": "A short description of Disintegrate.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/dbukowski/Disintegrate",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dbukowski": "dariusz.m.bukowski@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dbukowski/Disintegrate.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Disintegrate/Classes/**/*"
+}
