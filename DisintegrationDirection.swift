@@ -20,16 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+public enum DisintegrationDirection: Int {
 
-    var window: UIWindow?
+    case up
+    case down
+    case left
+    case right
+    case upperLeft
+    case upperRight
+    case lowerLeft
+    case lowerRight
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    public static func random() -> DisintegrationDirection {
+        return DisintegrationDirection(rawValue: Int(arc4random()) % 8) ?? .upperLeft
     }
 
 }
-

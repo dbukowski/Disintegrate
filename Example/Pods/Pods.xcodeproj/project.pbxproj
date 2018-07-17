@@ -51,6 +51,7 @@
 		661E7F93F0C71E8F8657A6E9E936CD78 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 12989D830FCE4AEF54A357265111CAEF /* QCKDSL.m */; };
 		66C2248420FA1FED00103AD3 /* UIView+Disintegrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C2248320FA1FED00103AD3 /* UIView+Disintegrate.swift */; };
 		66C2248620FA32A500103AD3 /* CALayer+Disintegrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C2248520FA32A500103AD3 /* CALayer+Disintegrate.swift */; };
+		66C2248820FA90E500103AD3 /* DisintegrationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C2248720FA90E500103AD3 /* DisintegrationDirection.swift */; };
 		68CBCBABD0C34B7B18721BA0BFE512CE /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9E93FDAF76CEA15A9E23CC159DED1 /* Callsite.swift */; };
 		68FD03C72D719117929696B62038B3D7 /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192785265D796ADAF8B5DE3C97DD4CE /* NMBExpectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		69B80157634D6FAF248D37F397732357 /* CwlPreconditionTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB52415DA15D60348D226639C322706 /* CwlPreconditionTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -226,6 +227,7 @@
 		6642EE042EBCD8FB5BA4D88BAF4EAB36 /* NimbleEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleEnvironment.swift; path = Sources/Nimble/Adapters/NimbleEnvironment.swift; sourceTree = "<group>"; };
 		66C2248320FA1FED00103AD3 /* UIView+Disintegrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Disintegrate.swift"; path = "Disintegrate/Classes/UIView+Disintegrate.swift"; sourceTree = "<group>"; };
 		66C2248520FA32A500103AD3 /* CALayer+Disintegrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Disintegrate.swift"; sourceTree = "<group>"; };
+		66C2248720FA90E500103AD3 /* DisintegrationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisintegrationDirection.swift; sourceTree = "<group>"; };
 		679FFD5386CAB1887F96D8FF6D84B7B8 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
 		67C7BB2DC0DED3CBCF5D776D9E39AB30 /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Match.swift; path = Sources/Nimble/Matchers/Match.swift; sourceTree = "<group>"; };
 		698366519E8DF1484C0AE2845EB47D7F /* HaveCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveCount.swift; path = Sources/Nimble/Matchers/HaveCount.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				AEF2DF0BD3893CE08A6DCC949954EFC2 /* Support Files */,
 				66C2248320FA1FED00103AD3 /* UIView+Disintegrate.swift */,
 				66C2248520FA32A500103AD3 /* CALayer+Disintegrate.swift */,
+				66C2248720FA90E500103AD3 /* DisintegrationDirection.swift */,
 			);
 			name = Disintegrate;
 			path = ../..;
@@ -911,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CD82FB8EE33FFCDF43134AD2A6CD4A9 /* Disintegrate-dummy.m in Sources */,
+				66C2248820FA90E500103AD3 /* DisintegrationDirection.swift in Sources */,
 				66C2248620FA32A500103AD3 /* CALayer+Disintegrate.swift in Sources */,
 				66C2248420FA1FED00103AD3 /* UIView+Disintegrate.swift in Sources */,
 			);

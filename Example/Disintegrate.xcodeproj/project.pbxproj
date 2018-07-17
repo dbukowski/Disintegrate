@@ -213,6 +213,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 96TAXNSJBC;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -490,6 +491,7 @@
 			baseConfigurationReference = FAD73ABE361F3F42B6B9DA5E /* Pods-Disintegrate_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 96TAXNSJBC;
 				INFOPLIST_FILE = Disintegrate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -505,6 +507,7 @@
 			baseConfigurationReference = 24577A295C30986A5235E2A1 /* Pods-Disintegrate_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 96TAXNSJBC;
 				INFOPLIST_FILE = Disintegrate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -519,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63ABB28C702E5026E7E18D06 /* Pods-Disintegrate_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -541,6 +545,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F91F5A3C87E30089DC52EB0 /* Pods-Disintegrate_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
