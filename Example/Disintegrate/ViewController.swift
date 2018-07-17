@@ -39,6 +39,7 @@ class ViewController: UIViewController {
                                     self.starLordImageView,
                                     self.doctorStrangeImageView,
                                     self.spiderManImageView]
+        
         for (index, imageView) in fallenHeroImageViews.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(index * 2)) {
                 imageView?.disintegrate()
