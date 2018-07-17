@@ -22,6 +22,9 @@
 
 import Foundation
 
+/**
+ Direction of the moving triangle particles.
+ */
 public enum DisintegrationDirection: Int {
 
     case up
@@ -33,6 +36,9 @@ public enum DisintegrationDirection: Int {
     case lowerLeft
     case lowerRight
 
+    /**
+     Returns a random direction for the moving triangle particles.
+     */
     public static func random() -> DisintegrationDirection {
         return DisintegrationDirection(rawValue: Int(arc4random()) % 8) ?? .upperLeft
     }

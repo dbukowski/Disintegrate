@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Disintegrate: dbff145c6e425544d432ba8f942fb1a188c657b4
+  Disintegrate: 9cd4f9ad7aee2ebe7c8692ce49148950b15301da
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 

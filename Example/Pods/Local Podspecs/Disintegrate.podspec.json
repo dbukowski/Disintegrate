@@ -1,20 +1,28 @@
 {
   "name": "Disintegrate",
   "version": "0.1.0",
-  "summary": "A short description of Disintegrate.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Disintegration animation inspired by THAT thing Thanos did at the end of Avengers: Infinity War.",
+  "description": "Disintegrate is a small library providing an animation inspired by how our favorite heroes disappeared at the end of Avengers: Infinity War.\n    The view or layer that you use it on is divided into small triangles, which then move into one direction and fade away. You can customize\n    the estimated number of triangles and the direction they will move to.",
   "homepage": "https://github.com/dbukowski/Disintegrate",
+  "screenshots": [
+    "https://imgur.com/kPXjfNP",
+    "https://imgur.com/bz7zFez",
+    "https://imgur.com/EnYu6uJ",
+    "https://imgur.com/bNWiGrD",
+    "https://imgur.com/kytYTMT"
+  ],
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "dbukowski": "dariusz.m.bukowski@gmail.com"
+    "Dariusz Bukowski": "dariusz.m.bukowski@gmail.com"
   },
   "source": {
     "git": "https://github.com/dbukowski/Disintegrate.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/darekbukowski",
   "platforms": {
     "ios": "8.0"
   },

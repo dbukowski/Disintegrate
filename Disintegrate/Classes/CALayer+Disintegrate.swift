@@ -66,6 +66,12 @@ private struct Triangle {
 
 extension CALayer {
 
+    /**
+     Divides the layer into triangles and animates their movement into a specified direction with fading away.
+
+     - Parameter direction: The direction of the triangles' movement.
+     - Parameter estimatedTrianglesCount: Estimated number of triangles after dividing the layer. The final number will also depend on the layer bounds' size.
+     */
     open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
                            estimatedTrianglesCount: Int = 66) {
         self.getRandomTriangles(direction: direction,

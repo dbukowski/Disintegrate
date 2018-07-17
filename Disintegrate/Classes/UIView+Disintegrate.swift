@@ -24,6 +24,12 @@ import Foundation
 
 extension UIView {
 
+    /**
+     Divides the view's layer into triangles and animates their movement into a specified direction with fading away.
+
+     - Parameter direction: The direction of the triangles' movement.
+     - Parameter estimatedTrianglesCount: Estimated number of triangles after dividing the layer. The final number will also depend on the view bounds' size.
+     */
     open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
                            estimatedTrianglesCount: Int = 66) {
         self.layer.disintegrate(direction: direction,
