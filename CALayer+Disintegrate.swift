@@ -27,6 +27,7 @@ private struct Triangle {
     let vertices: (CGPoint, CGPoint, CGPoint)
 
     init(vertices: (CGPoint, CGPoint, CGPoint)) {
+        // On creation, the triangles are scaled by Triangle.scaleFactor to avoid empty spaces between the triangles.
         let centerOfGravity = CGPoint(x: (vertices.0.x + vertices.1.x + vertices.2.x) / 3.0,
                                       y: (vertices.0.y + vertices.1.y + vertices.2.y) / 3.0)
         self.vertices = (CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (vertices.0.x - centerOfGravity.x),
@@ -65,8 +66,10 @@ private struct Triangle {
 
 extension CALayer {
 
-    open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random()) {
-        self.getRandomTriangles(direction: direction) { triangles in
+    open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
+                           estimatedTrianglesCount: Int = 66) {
+        self.getRandomTriangles(direction: direction,
+                                estimatedTrianglesCount: estimatedTrianglesCount) { triangles in
             DispatchQueue.main.async {
                 self.disintegrate(withTriangles: triangles,
                                   direction: direction)
@@ -82,6 +85,11 @@ extension CALayer {
 
         let scale = UIScreen.main.scale
         let initialSublayers = self.sublayers ?? []
+        var triangleLayers = [CALayer]()
+
+        let maxAnimationBeginTime: Double = 2.0
+        let animationDuration: Double = 3.0
+        let animationTimingRandomFactor: CGFloat = 0.1
 
         for (index, triangle) in triangles.enumerated() {
             let bounds = triangle.boundingRect
@@ -95,15 +103,12 @@ extension CALayer {
             triangleLayer.frame = bounds
             triangleLayer.contents = triangleImage
             triangleLayer.mask = triangleMaskLayer
-            triangleLayer.rasterizationScale = scale
             triangleLayer.shouldRasterize = true
             triangleLayer.drawsAsynchronously = true
+            triangleLayers.append(triangleLayer)
             self.addSublayer(triangleLayer)
 
-            let maxAnimationBeginTime: Double = 2.0
             let animationBeginTime = CACurrentMediaTime() + CFTimeInterval(Double(index) / Double(triangles.count) * maxAnimationBeginTime)
-            let animationDuration: Double = 3.0
-            let animationTimingRandomFactor: CGFloat = 0.1
 
             let alphaAnimation = CABasicAnimation(keyPath: "opacity")
             alphaAnimation.fromValue = 1.0
@@ -155,9 +160,10 @@ extension CALayer {
             triangleLayer.position = targetPoint
             triangleLayer.add(positionAnimation, forKey:nil)
 
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + maxAnimationBeginTime + animationDuration + 2.0 * Double(animationTimingRandomFactor)) {
-                triangleLayer.removeFromSuperlayer()
-            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + maxAnimationBeginTime + animationDuration + 2.0 * Double(animationTimingRandomFactor)) {
+            triangleLayers.forEach { $0.removeFromSuperlayer() }
         }
 
         initialSublayers.forEach { (layer) in
@@ -203,16 +209,21 @@ extension CALayer {
         }
     }
 
-    private func getRandomTriangles(direction: DisintegrationDirection, completion: @escaping ([Triangle]) -> ()) {
+    private func getRandomTriangles(direction: DisintegrationDirection,
+                                    estimatedTrianglesCount: Int,
+                                    completion: @escaping ([Triangle]) -> ()) {
         DispatchQueue.global(qos: .background).async {
-            let minDimension = 6
+            // We generate the random triangles by first dividing the bounds of the layer into a grid. Every cell of the grid
+            // has 4 random points: on top, on the bottom, on the left, and on the right. Connecting those points in a random
+            // way creates a triangulation of the layer.
+
             var numberOfRows: Int, numberOfColumns: Int
             if self.bounds.width < self.bounds.height {
-                numberOfColumns = minDimension
-                numberOfRows = Int(CGFloat(minDimension) * self.bounds.height / self.bounds.width)
+                numberOfColumns = Int(sqrt(CGFloat(estimatedTrianglesCount - 2) * self.bounds.width / 4.0 / self.bounds.height))
+                numberOfRows = Int(CGFloat(numberOfColumns) * self.bounds.height / self.bounds.width)
             } else {
-                numberOfRows = minDimension
-                numberOfColumns = Int(CGFloat(minDimension) * self.bounds.width / self.bounds.height)
+                numberOfRows = Int(sqrt(CGFloat(estimatedTrianglesCount - 2) * self.bounds.height / 4.0 / self.bounds.width))
+                numberOfColumns = Int(CGFloat(numberOfRows) * self.bounds.width / self.bounds.height)
             }
 
             let cellSize = CGSize(width: self.bounds.width / CGFloat(numberOfColumns), height: self.bounds.height / CGFloat(numberOfRows))

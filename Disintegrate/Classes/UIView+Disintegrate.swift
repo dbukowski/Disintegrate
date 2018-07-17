@@ -24,8 +24,10 @@ import Foundation
 
 extension UIView {
 
-    open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random()) {
-        self.layer.disintegrate(direction: direction)
+    open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
+                           estimatedTrianglesCount: Int = 66) {
+        self.layer.disintegrate(direction: direction,
+                                estimatedTrianglesCount: estimatedTrianglesCount)
     }
 
 }

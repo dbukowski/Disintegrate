@@ -32,18 +32,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var doctorStrangeImageView: UIImageView!
     @IBOutlet weak var spiderManImageView: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func snapButtonAction(_ sender: Any) {
-        let fallenHeroesImageViews = [self.blackPantherImageView,
-                                      self.scarletWitchImageView,
-                                      self.draxImageView,
-                                      self.starLordImageView,
-                                      self.doctorStrangeImageView,
-                                      self.spiderManImageView]
-        for (index, imageView) in fallenHeroesImageViews.enumerated() {
+        let fallenHeroImageViews = [self.blackPantherImageView,
+                                    self.scarletWitchImageView,
+                                    self.draxImageView,
+                                    self.starLordImageView,
+                                    self.doctorStrangeImageView,
+                                    self.spiderManImageView]
+        for (index, imageView) in fallenHeroImageViews.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(index * 2)) {
                 imageView?.disintegrate()
             }
