@@ -57,7 +57,7 @@ To integrate Disintegrate into your Xcode project using Carthage, specify it in 
 ```ruby
 github "dbukowski/Disintegrate" ~> 0.1.0
 ```
-Run carthage update to build the framework and drag the built DBDebugToolkit.framework into your Xcode project.
+Run carthage update to build the framework and drag the built Disintegrate.framework into your Xcode project.
 
 ### Manually
 
@@ -70,7 +70,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-DBDebugToolkit requires iOS 8.0 or later.
+Disintegrate requires iOS 8.0 or later.
 
 ## Author
 
