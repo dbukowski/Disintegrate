@@ -24,13 +24,14 @@ Disintegrate is a small library providing an animation inspired by how our favor
                        DESC
 
   s.homepage         = 'https://github.com/dbukowski/Disintegrate'
-  s.screenshots      = 'https://imgur.com/kPXjfNP', 'https://imgur.com/bz7zFez', 'https://imgur.com/EnYu6uJ', 'https://imgur.com/bNWiGrD', 'https://imgur.com/kytYTMT'
+  s.screenshots      = 'https://i.imgur.com/kPXjfNP.png', 'https://i.imgur.com/bz7zFez.png', 'https://i.imgur.com/EnYu6uJ.png', 'https://i.imgur.com/bNWiGrD.png', 'https://i.imgur.com/kytYTMT.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Dariusz Bukowski' => 'dariusz.m.bukowski@gmail.com' }
   s.source           = { :git => 'https://github.com/dbukowski/Disintegrate.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/darekbukowski'
 
   s.ios.deployment_target = '8.0'
+  s.swift_version = '4.1'
 
   s.source_files = 'Disintegrate/Classes/**/*'
 end
