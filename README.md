@@ -10,9 +10,14 @@
 Disintegrate is a small library providing an animation inspired by how our favorite heroes disappeared at the end of Avengers: Infinity War.
 The view or layer that you use it on is divided into small triangles, which then move into one direction and fade away. You can customize the estimated number of triangles and the direction they will move to.
 
-<p align="center">
-  <img src="Assets/disintegrationDemo.gif"  style="width: 50%; height: 50%"/>
-</p>
+<div align="center">
+  <div>
+  <img src="Assets/disintegrationDemoLabel.gif" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="Assets/disintegrationDemo.gif" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="Assets/disintegrationDemoBigImage.gif" width="25%">
+  </div>
+</div>
+<br>
 
 - [Usage](#usage)
 - [Installation](#installation)
