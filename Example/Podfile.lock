@@ -1,12 +1,12 @@
 PODS:
   - Disintegrate (0.1.0)
-  - Nimble (7.0.3)
-  - Quick (1.2.0)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
 
 DEPENDENCIES:
   - Disintegrate (from `../`)
-  - Nimble (~> 7.0.2)
-  - Quick (~> 1.2.0)
+  - Nimble (~> 7.3.1)
+  - Quick (~> 1.3.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Disintegrate: 9cd4f9ad7aee2ebe7c8692ce49148950b15301da
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  Disintegrate: 2c5889ec019b32e4f66e84142588fbe8e969b769
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
-PODFILE CHECKSUM: 9bf7a2c9152076b89f806d5f6583ca6fb732a3b3
+PODFILE CHECKSUM: 913d99099057cac6ff5ae1a14af7277a8cb76106
 
 COCOAPODS: 1.5.3
