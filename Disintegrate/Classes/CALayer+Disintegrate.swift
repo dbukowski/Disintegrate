@@ -22,27 +22,28 @@
 
 import Foundation
 
-private struct Triangle {
+struct Triangle {
     private static let scaleFactor: CGFloat = 1.1
     let vertices: (CGPoint, CGPoint, CGPoint)
 
-    init(vertices: (CGPoint, CGPoint, CGPoint)) {
-        // On creation, the triangles are scaled by Triangle.scaleFactor to avoid empty spaces between the triangles.
-        let centerOfGravity = CGPoint(x: (vertices.0.x + vertices.1.x + vertices.2.x) / 3.0,
-                                      y: (vertices.0.y + vertices.1.y + vertices.2.y) / 3.0)
-        self.vertices = (CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (vertices.0.x - centerOfGravity.x),
-                                 y: centerOfGravity.y + Triangle.scaleFactor * (vertices.0.y - centerOfGravity.y)),
-                         CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (vertices.1.x - centerOfGravity.x),
-                                 y: centerOfGravity.y + Triangle.scaleFactor * (vertices.1.y - centerOfGravity.y)),
-                         CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (vertices.2.x - centerOfGravity.x),
-                                 y: centerOfGravity.y + Triangle.scaleFactor * (vertices.2.y - centerOfGravity.y)))
+    var scaledVertices: (CGPoint, CGPoint, CGPoint) {
+        // The triangles are scaled by Triangle.scaleFactor to avoid empty spaces between the triangles.
+        let centerOfGravity = CGPoint(x: (self.vertices.0.x + self.vertices.1.x + self.vertices.2.x) / 3.0,
+                                      y: (self.vertices.0.y + self.vertices.1.y + self.vertices.2.y) / 3.0)
+        return (CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (self.vertices.0.x - centerOfGravity.x),
+                        y: centerOfGravity.y + Triangle.scaleFactor * (self.vertices.0.y - centerOfGravity.y)),
+                CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (self.vertices.1.x - centerOfGravity.x),
+                        y: centerOfGravity.y + Triangle.scaleFactor * (self.vertices.1.y - centerOfGravity.y)),
+                CGPoint(x: centerOfGravity.x + Triangle.scaleFactor * (self.vertices.2.x - centerOfGravity.x),
+                        y: centerOfGravity.y + Triangle.scaleFactor * (self.vertices.2.y - centerOfGravity.y)))
     }
 
     var boundingRect: CGRect {
-        let minX = min(self.vertices.0.x, self.vertices.1.x, self.vertices.2.x)
-        let maxX = max(self.vertices.0.x, self.vertices.1.x, self.vertices.2.x)
-        let minY = min(self.vertices.0.y, self.vertices.1.y, self.vertices.2.y)
-        let maxY = max(self.vertices.0.y, self.vertices.1.y, self.vertices.2.y)
+        let scaledVertices = self.scaledVertices
+        let minX = min(scaledVertices.0.x, scaledVertices.1.x, scaledVertices.2.x)
+        let maxX = max(scaledVertices.0.x, scaledVertices.1.x, scaledVertices.2.x)
+        let minY = min(scaledVertices.0.y, scaledVertices.1.y, scaledVertices.2.y)
+        let maxY = max(scaledVertices.0.y, scaledVertices.1.y, scaledVertices.2.y)
         return CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 
@@ -52,10 +53,11 @@ private struct Triangle {
     }
 
     var path: CGPath {
+        let scaledVertices = self.scaledVertices
         let path = UIBezierPath()
-        path.move(to: self.vertices.0)
-        path.addLine(to: self.vertices.1)
-        path.addLine(to: self.vertices.2)
+        path.move(to: scaledVertices.0)
+        path.addLine(to: scaledVertices.1)
+        path.addLine(to: scaledVertices.2)
         path.close()
         let boundingRect = self.boundingRect
         path.apply(CGAffineTransform(translationX: -boundingRect.origin.x,
@@ -71,20 +73,24 @@ extension CALayer {
 
      - Parameter direction: The direction of the triangles' movement.
      - Parameter estimatedTrianglesCount: Estimated number of triangles after dividing the layer. The final number will also depend on the layer bounds' size.
+     - Parameter completion: Block that will be executed when the animation finishes.
      */
     open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
-                           estimatedTrianglesCount: Int = 66) {
+                           estimatedTrianglesCount: Int = 66,
+                           completion: (() -> ())? = nil) {
         self.getRandomTriangles(direction: direction,
                                 estimatedTrianglesCount: estimatedTrianglesCount) { triangles in
             DispatchQueue.main.async {
                 self.disintegrate(withTriangles: triangles,
-                                  direction: direction)
+                                  direction: direction,
+                                  completion: completion)
             }
         }
     }
 
     private func disintegrate(withTriangles triangles: [Triangle],
-                              direction: DisintegrationDirection) {
+                              direction: DisintegrationDirection,
+                              completion: (() -> ())? = nil) {
         guard let snapshot = self.snapshot() else {
             return
         }
@@ -170,6 +176,7 @@ extension CALayer {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + maxAnimationBeginTime + animationDuration + 2.0 * Double(animationTimingRandomFactor)) {
             triangleLayers.forEach { $0.removeFromSuperlayer() }
+            completion?()
         }
 
         initialSublayers.forEach { (layer) in
@@ -215,7 +222,7 @@ extension CALayer {
         }
     }
 
-    private func getRandomTriangles(direction: DisintegrationDirection,
+    func getRandomTriangles(direction: DisintegrationDirection,
                                     estimatedTrianglesCount: Int,
                                     completion: @escaping ([Triangle]) -> ()) {
         DispatchQueue.global(qos: .background).async {

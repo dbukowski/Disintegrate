@@ -29,11 +29,14 @@ extension UIView {
 
      - Parameter direction: The direction of the triangles' movement.
      - Parameter estimatedTrianglesCount: Estimated number of triangles after dividing the layer. The final number will also depend on the view bounds' size.
+     - Parameter completion: Block that will be executed when the animation finishes.
      */
     open func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
-                           estimatedTrianglesCount: Int = 66) {
+                           estimatedTrianglesCount: Int = 66,
+                           completion: (() -> ())? = nil) {
         self.layer.disintegrate(direction: direction,
-                                estimatedTrianglesCount: estimatedTrianglesCount)
+                                estimatedTrianglesCount: estimatedTrianglesCount,
+                                completion: completion)
     }
 
 }

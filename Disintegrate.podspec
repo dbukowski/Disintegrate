@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Disintegrate'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Disintegration animation inspired by THAT thing Thanos did at the end of Avengers: Infinity War.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ Disintegrate is a small library providing an animation inspired by how our favor
   s.social_media_url = 'https://twitter.com/darekbukowski'
 
   s.ios.deployment_target = '8.0'
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
 
   s.source_files = 'Disintegrate/Classes/**/*'
 end

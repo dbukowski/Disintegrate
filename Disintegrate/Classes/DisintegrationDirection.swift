@@ -40,7 +40,7 @@ public enum DisintegrationDirection: Int {
      Returns a random direction for the moving triangle particles.
      */
     public static func random() -> DisintegrationDirection {
-        return DisintegrationDirection(rawValue: Int(arc4random()) % 8) ?? .upperLeft
+        return DisintegrationDirection(rawValue: Int.random(in: 0 ..< 8)) ?? .upperLeft
     }
 
 }
