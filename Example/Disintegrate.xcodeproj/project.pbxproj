@@ -12,7 +12,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		66ED89052186010A00A278B6 /* TriangulationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* TriangulationTests.swift */; };
 		D25FF22A9DB32CABFC53F101 /* Pods_Disintegrate_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054118A79468D5D8C86260D8 /* Pods_Disintegrate_Example.framework */; };
 		D623A19EF143686652606B85 /* Pods_Disintegrate_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B78C158DAE1B83BF0CBB887 /* Pods_Disintegrate_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Disintegrate_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Disintegrate_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* TriangulationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangulationTests.swift; sourceTree = "<group>"; };
 		63ABB28C702E5026E7E18D06 /* Pods-Disintegrate_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Disintegrate_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Disintegrate_Tests/Pods-Disintegrate_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8359DE42ED9A855C425DFEB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DB1B532E5B018158F116024A /* Disintegrate.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Disintegrate.podspec; path = ../Disintegrate.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -135,7 +135,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* TriangulationTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -352,7 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				66ED89052186010A00A278B6 /* TriangulationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
