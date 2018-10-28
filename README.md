@@ -31,18 +31,23 @@ The view or layer that you use it on is divided into small triangles, which then
 Disintegrate adds a single method to both UIView and CALayer classes.
 ```swift
 func disintegrate(direction: DisintegrationDirection = DisintegrationDirection.random(),
-                  estimatedTrianglesCount: Int = 66)
+                  estimatedTrianglesCount: Int = 66,
+                  completion: (() -> ())? = nil)
 ```
 The animation can be customized by two parameters:
 * `direction` - direction in which the triangle particles will move. By default, the direction is chosen randomly from the set of 8 available options: up, down, left, right, upper left, upper right, lower left and lower right.
 * `estimatedTrianglesCount` - estimated number of triangle particles. Specifying it allows you to adjust the performance of the animation to your needs. For example, if you know that you want to use it on a smaller view, you can divide it into more triangles. Keep in mind, that it is only an estimate, and the final count of the triangles will also depend on the exact size of the view or the layer. This parameter does have an empirically chosen default value, so you don't have to specify it.
+
+Additionally, you can specify a completion block that will be executed when the animation finishes.
 
 Here are some examples of using Disintegrate:
 ```swift
 avatarImageView.disintegrate()
 cancelButton.disintegrate(direction: .upperLeft)
 gradientLayer.disintegrate(estimatedTrianglesCount: 100)
-errorLabel.disintegrate(direction: .down, estimatedTrianglesCount: 200)
+errorLabel.disintegrate(direction: .down, estimatedTrianglesCount: 200) {
+    print("Error label animation finished.")
+}
 ```
 
 ## Installation
@@ -60,7 +65,7 @@ pod 'Disintegrate'
 
 To integrate Disintegrate into your Xcode project using Carthage, specify it in your Cartfile:
 ```ruby
-github "dbukowski/Disintegrate" ~> 0.1.0
+github "dbukowski/Disintegrate" ~> 0.2.0
 ```
 Run carthage update to build the framework and drag the built Disintegrate.framework into your Xcode project.
 
