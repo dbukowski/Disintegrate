@@ -121,8 +121,8 @@ extension CALayer {
             alphaAnimation.toValue = 0.0
             alphaAnimation.duration = animationDuration + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
             alphaAnimation.beginTime = animationBeginTime + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
-            alphaAnimation.fillMode = kCAFillModeBackwards
-            alphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            alphaAnimation.fillMode = CAMediaTimingFillMode.backwards
+            alphaAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
             triangleLayer.opacity = 0.0
             triangleLayer.add(alphaAnimation, forKey: nil)
 
@@ -132,7 +132,7 @@ extension CALayer {
             scaleAnimation.toValue = targetScale
             scaleAnimation.duration = animationDuration + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
             scaleAnimation.beginTime = animationBeginTime + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
-            scaleAnimation.fillMode = kCAFillModeBackwards
+            scaleAnimation.fillMode = CAMediaTimingFillMode.backwards
             triangleLayer.setValue(targetScale, forKeyPath: "transform.scale")
             triangleLayer.add(scaleAnimation, forKey: nil)
 
@@ -142,7 +142,7 @@ extension CALayer {
             rotateAnimation.toValue = targetRotation
             rotateAnimation.duration = animationDuration + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
             rotateAnimation.beginTime = animationBeginTime + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
-            rotateAnimation.fillMode = kCAFillModeBackwards
+            rotateAnimation.fillMode = CAMediaTimingFillMode.backwards
             rotateAnimation.setValue(targetRotation, forKeyPath: "transform.rotation")
             triangleLayer.add(rotateAnimation, forKey: nil)
 
@@ -161,8 +161,8 @@ extension CALayer {
             positionAnimation.path = path.cgPath;
             positionAnimation.duration = animationDuration + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
             positionAnimation.beginTime = animationBeginTime + CFTimeInterval(CGFloat.random(between: -animationTimingRandomFactor, and: animationTimingRandomFactor))
-            positionAnimation.fillMode = kCAFillModeBackwards
-            positionAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            positionAnimation.fillMode = CAMediaTimingFillMode.backwards
+            positionAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
             triangleLayer.position = targetPoint
             triangleLayer.add(positionAnimation, forKey:nil)
 
