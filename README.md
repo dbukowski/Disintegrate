@@ -5,7 +5,6 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/Disintegrate.svg?style=flat)](https://cocoapods.org/pods/Disintegrate)
 [![Platform](https://img.shields.io/cocoapods/p/Disintegrate.svg?style=flat)](https://cocoapods.org/pods/Disintegrate)
-[![Twitter: @darekbukowski](https://img.shields.io/badge/contact-@darekbukowski-blue.svg?style=flat)](https://twitter.com/darekbukowski)
 
 Disintegrate is a small library providing an animation inspired by how our favorite heroes disappeared at the end of Avengers: Infinity War.
 The view or layer that you use it on is divided into small triangles, which then move into one direction and fade away. You can customize the estimated number of triangles and the direction they will move to.
@@ -84,7 +83,9 @@ Disintegrate requires iOS 8.0 or later.
 
 ## Author
 
-Dariusz Bukowski, dariusz.m.bukowski@gmail.com
+Maintained by Maciej Mastalerz, maciej.mastalerz@gmail.com
+
+Created by Dariusz Bukowski, dariusz.m.bukowski@gmail.com
 
 ## License
 
